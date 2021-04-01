@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:searchbarflutter/Api/LoginApi.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
           preferredSize: Size.fromHeight(100.0),
           child: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.yellow[600],
+            backgroundColor: Colors.pink[600],
             automaticallyImplyLeading: false,
             title: Text(
               'صفحة التسجيل',
@@ -104,7 +105,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 0.02 * MediaQuery.of(context).size.width,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    LoginApi().doLogin(
+                        context: context,
+                        phoneNo: phoneNo,
+                        password: password,
+                        rememberMe: checkRemember);
+                  },
                   child: Container(
                     width: 0.9 * MediaQuery.of(context).size.width,
                     height: 0.19 * MediaQuery.of(context).size.width,
@@ -112,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),
-                      color: Colors.yellow[600],
+                      color: Colors.pink[600],
                     ),
                     alignment: Alignment.center,
                     child: Text(
@@ -153,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     'الدخول كضيف',
                     style: TextStyle(
-                        color: Colors.yellow[600],
+                        color: Colors.pink[600],
                         fontWeight: FontWeight.bold,
                         fontSize: 18),
                   ),
